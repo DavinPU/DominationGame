@@ -13,14 +13,7 @@ public class RenderHandler {
         // create an array for our pixels
         pixels = ((DataBufferInt) view.getRaster().getDataBuffer()).getData();
 
-        for(int heightIndex = 0; heightIndex < height; heightIndex++) {
 
-            int randomPixel = (int)(Math.random() * 0xFFFFFF);
-
-            for (int widthIndex = 0; widthIndex < width; widthIndex++) {
-                pixels[heightIndex * width + widthIndex] = randomPixel;
-            }
-        }
     }
 
 

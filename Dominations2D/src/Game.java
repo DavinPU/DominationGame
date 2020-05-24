@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
 import java.io.IOException;
+import java.io.File;
 import java.lang.Runnable;
 import java.lang.Thread;
 
@@ -43,7 +44,7 @@ public class Game extends JFrame implements Runnable{
 
         renderer = new RenderHandler(getWidth(), getHeight());
 
-        testImage = loadImage("purplerays.jpg");
+        testImage = loadImage("tiles/GrassTile.png");
     }
 
     public void update() {
@@ -53,7 +54,7 @@ public class Game extends JFrame implements Runnable{
     private BufferedImage loadImage(String path) {
         try {
             // gets resource of path as input string and stores as loaded image
-            BufferedImage loadedImage = ImageIO.read(Game.class.getResource(path));
+            BufferedImage loadedImage = ImageIO.read(new File(path));
             BufferedImage formattedImage = new BufferedImage(loadedImage.getWidth(), loadedImage.getHeight(), BufferedImage.TYPE_INT_RGB);
 
             // drawing our loaded image to our formatted image (to get rgb type)
@@ -108,10 +109,9 @@ public class Game extends JFrame implements Runnable{
         Thread gameThread = new Thread(game);
         gameThread.start();
 
-        System.out.println("testing git");
     }
 
-    
+
 
 
 }
